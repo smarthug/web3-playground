@@ -4,7 +4,7 @@ export default function Test(){
     // const account = useAccount();
     return (
         <div>
-            test
+            testa
         </div>
     )
 }

@@ -1,9 +1,10 @@
 
+import { ethers } from "ethers";
 import { useCallback, useEffect, useState } from "react";
 import { useWeb3Store } from "./web3Store";
 
 export function useBalance() {
-    const web3 = useWeb3Store((state) => state.web3);
+    const web3 = useWeb3Store((state) => state.provider);
     const address = useWeb3Store((state) => state.address);
 
     const [balance, setBalance] = useState("Loading...");
@@ -11,7 +12,7 @@ export function useBalance() {
     const fetchAndSetBalance = () => {
         Promise.all([web3.getBalance(address)]).then((values) => {
             // console.log(values);
-            setBalance(values.toString());
+            setBalance(ethers.utils.formatEther(values[0]));
         });
     };
 
@@ -20,7 +21,8 @@ export function useBalance() {
         // fetchAndSetBalance();
         Promise.all([web3.getBalance(address)]).then((values) => {
             // console.log(values);
-            setBalance(values.toString());
+            // setBalance(values.toString());
+            setBalance(ethers.utils.formatEther(values[0]));
         });
 
         return (

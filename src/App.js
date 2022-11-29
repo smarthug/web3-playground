@@ -9,7 +9,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import * as Pages from "./pages";
 
 const INFURA_ID = 'a765912a43214d26a157438364ba1f6f'
-const address = '0xc307582b04C754a77baE37Ba2BFe72f75b9b568c'
+// const address = '0xc307582b04C754a77baE37Ba2BFe72f75b9b568c'
+// const address = '0x6d77be275C36761A53DBAf957fB516fA10fFf00E'
+// mainnet
+const address = '0xe16ecAeb852fB6E8377cB273cA8f25dC41Abf7d9'
 
 
 function InitWeb3() {
@@ -21,7 +24,8 @@ function InitWeb3() {
   // const setWeb3 = useWeb3Store((state) => state.setWeb3)
   // setWeb3(new ethers.providers.JsonRpcProvider(`https://goerli.infura.io/v3/${INFURA_ID}`))
 
-  useWeb3Store.setState({ address: address, infuraId: INFURA_ID, web3: new ethers.providers.JsonRpcProvider(`https://goerli.infura.io/v3/${INFURA_ID}`) })
+  // useWeb3Store.setState({ address: address, infuraId: INFURA_ID, provider: new ethers.providers.JsonRpcProvider(`https://goerli.infura.io/v3/${INFURA_ID}`) })
+  useWeb3Store.setState({ address: address, infuraId: INFURA_ID, provider: new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${INFURA_ID}`) })
 
 }
 

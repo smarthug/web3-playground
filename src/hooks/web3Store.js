@@ -17,8 +17,8 @@ import {devtools} from 'zustand/middleware'
 
 
 export const useWeb3Store = create(devtools((set) => ({
-    web3: null,
-    setWeb3: (web3) => set({ web3 }),
+    provider: null,
+    setProvider: (provider) => set({ provider }),
     account: null,
     setAccount: (account) => set({ account }),
     address: null,

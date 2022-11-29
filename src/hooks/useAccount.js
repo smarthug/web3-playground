@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import { useWeb3Store } from "./web3Store";
 
 export async function useAccount() {
-    const web3 = useWeb3Store((state) => state.web3);
+    const web3 = useWeb3Store((state) => state.provider);
     const address = useWeb3Store((state) => state.address);
 
     const [balance, setBalance] = useState(0);

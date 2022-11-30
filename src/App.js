@@ -10,9 +10,14 @@ import * as Pages from "./pages";
 
 const INFURA_ID = 'a765912a43214d26a157438364ba1f6f'
 // const address = '0xc307582b04C754a77baE37Ba2BFe72f75b9b568c'
-// const address = '0x6d77be275C36761A53DBAf957fB516fA10fFf00E'
+// 테스트
+const address = '0x6d77be275C36761A53DBAf957fB516fA10fFf00E'
+// 테스트2
+// const address = '0x0F8eD341f75739829001D7F3b07f6AbcB869C629'
 // mainnet
-const address = '0xe16ecAeb852fB6E8377cB273cA8f25dC41Abf7d9'
+// const address = '0xe16ecAeb852fB6E8377cB273cA8f25dC41Abf7d9'
+
+// const network = ``
 
 
 function InitWeb3() {

@@ -1,5 +1,6 @@
 {
   "name": "web3-playground",
+  "homepage": "https://smarthug.github.io/web3-playground",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "@web3-react/core": "^8.0.35-beta.0",
     "@web3-react/empty": "^8.0.20-beta.0",
     "ethers": "^5.7.2",
+    "gh-pages": "^4.0.0",
     "i": "^0.3.7",
     "moment": "^2.29.4",
     "npm": "^9.1.2",
@@ -22,6 +24,8 @@
     "zustand": "^4.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

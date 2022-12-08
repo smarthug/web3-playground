@@ -4,7 +4,7 @@ import { useWeb3Store, useAccount, useWeb3 } from './hooks'
 import Test from './components/test'
 import { ethers } from 'ethers'
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import * as Pages from "./pages";
 

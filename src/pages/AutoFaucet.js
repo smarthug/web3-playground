@@ -16,7 +16,7 @@ export default function AutoFaucet() {
         try {
             await navigator.clipboard.writeText(address);
 
-            goToFaucet()
+            checkFaucet()
             // last time visit 갱신 
         } catch (error) {
         }
@@ -28,6 +28,16 @@ export default function AutoFaucet() {
     }
 
     function goToFaucet() {
+
+        window.open("https://goerlifaucet.com/")
+        window.open("https://mumbaifaucet.com/")
+
+        localStorage.setItem("lastTimeVisit", moment().format())
+        localStorage.setItem("lastTimeVisitMS", Date.now())
+
+    }
+
+    function checkFaucet() {
         let start = localStorage.getItem("lastTimeVisitMS") ?? 0
 
         let elapsed = Date.now() - start
@@ -36,11 +46,7 @@ export default function AutoFaucet() {
         console.log(elapsedHour);
         // if() 24 hour + 라면 ,
         if (elapsedHour > 24) {
-            window.open("https://goerlifaucet.com/")
-            window.open("https://mumbaifaucet.com/")
-
-            localStorage.setItem("lastTimeVisit", moment().format())
-            localStorage.setItem("lastTimeVisitMS", Date.now())
+            goToFaucet()
         } else {
             setError("24시간이 지나지 않았습니다.")
         }

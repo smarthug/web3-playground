@@ -31,6 +31,7 @@ export default function AutoFaucet() {
 
         window.open("https://goerlifaucet.com/")
         window.open("https://mumbaifaucet.com/")
+        window.open("https://citizen.dosi.world/bonus")
 
         localStorage.setItem("lastTimeVisit", moment().format())
         localStorage.setItem("lastTimeVisitMS", Date.now())
@@ -44,12 +45,14 @@ export default function AutoFaucet() {
 
         let elapsedHour = elapsed / 1000 / 60 / 60
         console.log(elapsedHour);
+
+        goToFaucet();
         // if() 24 hour + 라면 ,
-        if (elapsedHour > 24) {
-            goToFaucet()
-        } else {
-            setError("24시간이 지나지 않았습니다.")
-        }
+        // if (elapsedHour > 24) {
+        //     goToFaucet()
+        // } else {
+        //     setError("24시간이 지나지 않았습니다.")
+        // }
     }
 
     useEffect(() => {

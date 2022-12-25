@@ -30,31 +30,14 @@ const client = createClient({
 // })
 console.log(Web3.givenProvider);
 export default function App() {
-    const [chainId, setChainId] = useState(num);
-
-    function handleChange(e) {
-        console.log(chainId)
-        console.log(e.target.value)
-        setChainId(e.target.value)
-        num = e.target.value
-        // refetch().then((res) => {
-        //     console.log(res)
-        // })
-    }
 
 
     return (
         <WagmiConfig client={client}>
             <Profile />
 
-            <Balance chainId={num} />
-            <select onChange={handleChange} name="pets" id="pet-select">
-                <option value={1}>ETH</option>
-                <option value={5}>goerli</option>
-                <option value={137}>Polygon</option>
-                <option value={80001}>Mumbai</option>
 
-            </select>
+
         </WagmiConfig>
     )
 }
@@ -64,47 +47,55 @@ export default function App() {
 
 function Profile() {
 
+    const [chainId, setChainId] = useState(1);
     const { address, isConnected } = useAccount()
     const { connect } = useConnect({
         connector: new MetaMaskConnector(),
     })
     const { disconnect } = useDisconnect()
 
-
-
-
-
-
-
-    if (isConnected)
-        return (
-            <div>
-                Connected to {address}
-                <button onClick={() => disconnect()}>Disconnect</button>
-
-            </div>
-        )
-    return <button onClick={() => connect()}>Connect Wallet</button>
-}
-
-function Balance({ chainId }) {
-    const { address, isConnected } = useAccount()
-
     const { data, isError, isLoading, refetch } = useBalance({
         address: address,
         chainId: Number(chainId),
     })
 
- 
+
+
+    function handleChange(e) {
+        console.log(chainId)
+        console.log(e.target.value)
+        setChainId(e.target.value)
+        // num = e.target.value
+
+    }
+
+
+
+
+
 
     if (isLoading) return <div>Fetching balance…</div>
     if (isError) return <div>Error fetching balance</div>
-    return (
-        <div>
+    if (isConnected)
+        return (
             <div>
-                Balance: {data?.formatted} {data?.symbol}
+                Connected to {address}
+                <button onClick={() => disconnect()}>Disconnect</button>
+                <div>
+                    Balance: {data?.formatted} {data?.symbol}
+                </div>
+                <select onChange={handleChange} name="pets" id="pet-select">
+                    <option value={1}>ETH</option>
+                    <option value={5}>goerli</option>
+                    <option value={137}>Polygon</option>
+                    <option value={80001}>Mumbai</option>
+
+                </select>
             </div>
-            
-        </div>
-    )
+        )
+    return <button onClick={() => connect()}>Connect Wallet</button>
 }
+
+
+
+

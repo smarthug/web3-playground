@@ -9,3 +9,4 @@
 // export * as AutoFaucet from './AutoFaucet'
 
 export * as metamask from './metamask'
+export * as dropzone from './dropzone'

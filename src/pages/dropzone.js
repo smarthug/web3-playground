@@ -17,8 +17,8 @@ const thumb = {
     border: '1px solid #eaeaea',
     marginBottom: 8,
     marginRight: 8,
-    width: 100,
-    height: 100,
+    width: 500,
+    height: 500,
     padding: 4,
     boxSizing: 'border-box'
 };
@@ -97,6 +97,7 @@ export default function Previews(props) {
                 setFiles(acceptedFiles.map(file => Object.assign(file, {
                     preview: URL.createObjectURL(file)
                 })));
+                console.log(acceptedFiles);
             }
         });
 
